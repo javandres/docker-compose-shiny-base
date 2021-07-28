@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-  pink:
+  solar:
     build: ./solar
     restart: always
     expose:
@@ -10,8 +10,7 @@ services:
     image: caddy:2.3.0-alpine
     restart: always
     ports:
-      - "80:80"
-      - "443:443"
+      - "3838:80"
     volumes:
       - $PWD/Caddyfile:/etc/caddy/Caddyfile
       - $PWD/site:/srv
