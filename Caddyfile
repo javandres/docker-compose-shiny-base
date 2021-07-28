@@ -4,14 +4,8 @@
 
 {$HOST} {
     root * /srv
-    handle_path /hello/* {
-        reverse_proxy hello:3838
-    }
-    handle_path /pink/* {
+    handle_path /solar/* {
         reverse_proxy pink:3838
-    }
-    handle_path /covidapp/* {
-        reverse_proxy covidapp:3838
     }
     file_server
     handle_errors {

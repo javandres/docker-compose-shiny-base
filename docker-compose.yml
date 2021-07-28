@@ -1,18 +1,8 @@
 version: "3.7"
 
 services:
-  hello:
-    image: registry.gitlab.com/analythium/shinyproxy-hello/hello:latest
-    restart: unless-stopped
-    ports:
-      - "9000:3838"
   pink:
-    build: ./pink
-    restart: always
-    expose:
-      - "3838"
-  covidapp:
-    image: analythium/covidapp-shiny:minimal
+    build: ./solar
     restart: always
     expose:
       - "3838"
@@ -29,9 +19,7 @@ services:
       - caddy_data:/data
       - caddy_config:/config
     depends_on:
-      - hello
       - pink
-      - covidapp
     environment:
       - HOST=":80"
       - EMAIL="your.name@yourdomain.com"
